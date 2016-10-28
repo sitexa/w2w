@@ -23,6 +23,7 @@
     $(document).ready(function () {
 
         // get transactions for given bitcoin address
+        console.log('btcAddress:'+CONFIG.btcAddress)
         $.get('https://blockexplorer.com/api/txs/?address=' + CONFIG.btcAddress)
 
         // find the latest transaction with OP_RETURN
@@ -43,7 +44,7 @@
 
                 // download webpage HTML via torrents
                 .then(function (torrentHash) {
-                    console.log('using hash', torrentHash)
+                    console.log('using hash:', torrentHash)
 
                     var magnet = CONFIG.magnetBase + torrentHash
                     var client = new WebTorrent()
